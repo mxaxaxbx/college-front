@@ -1,0 +1,31 @@
+<div>
+    <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+    <mat-card>
+        <mat-card-title>Registrar Curso</mat-card-title>
+
+        <mat-card-content>
+            <form (submit)="save()">
+                <mat-form-field appearance="outline" class="w-full">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput placeholder="P. ej. 10" [(ngModel)]="course.name" name="name">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="w-full">
+                    <mat-label>Grupo</mat-label>
+                    <mat-select [(ngModel)]="course.group_id" name="group_id">
+                        <mat-option *ngFor="let group of groups" [value]="group._id">
+                            {{ group.name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="w-full">
+                    <mat-label>Cantidad máxima de estudiantes</mat-label>
+                    <input type="number" matInput placeholder="P. ej. 30" [(ngModel)]="course.max_students_q" name="max_students_q">
+                </mat-form-field>
+
+                <button type="submit" mat-raised-button color="primary"> Guardar </button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

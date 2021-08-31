@@ -1,0 +1,17 @@
+<div>
+    <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+    <mat-card>
+        <mat-card-title>Registrar Matería</mat-card-title>
+
+        <mat-card-content>
+            <form (submit)="save()">
+                <mat-form-field appearance="outline" class="w-full">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput placeholder="P. ej. Matematicas" [(ngModel)]="subject.name" name="name">
+                </mat-form-field>
+
+                <button type="submit" mat-raised-button color="primary"> Guardar </button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

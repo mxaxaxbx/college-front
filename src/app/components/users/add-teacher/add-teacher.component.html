@@ -1,0 +1,36 @@
+<div>
+    <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+    <mat-card>
+        <mat-card-title>Registrar Profesor</mat-card-title>
+
+        <mat-card-content>
+            <form (submit)="saveTeacher()">
+                <mat-form-field appearance="outline" class="w-full">
+                    <mat-label>Nombres Completos</mat-label>
+                    <input matInput placeholder="P. ej. Juan" [(ngModel)]="user.name" name="name">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="w-full">
+                    <mat-label>Correo Electrónico</mat-label>
+                    <input matInput placeholder="P. ej. juan@gmail.com" [(ngModel)]="user.email" name="email">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="w-full">
+                    <mat-label>Contraseña</mat-label>
+                    <input type="password" matInput placeholder="P. ej. juan@gmail.com" [(ngModel)]="user.password" name="password">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="w-full">
+                    <mat-label>Materias</mat-label>
+                    <mat-select [formControl]="subjects" multiple [(ngModel)]="user.subjects" name="subjects">
+                        <mat-option *ngFor="let subjetct of subjectList" [value]="subjetct._id">
+                            {{ subjetct.name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <button type="submit" mat-raised-button color="primary"> Guardar </button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
